@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page x:Class="NewLibrary.View.Genre"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:NewLibrary"
+      xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel>
+        <ComboBox x:Name="GenreComboBox" SelectionChanged="GenreComboBox_SelectionChanged" Margin="10">
+            <x:String>Усі жанри</x:String>
+            <x:String>Фантастика</x:String>
+            <x:String>Детектив</x:String>
+            <x:String>Роман</x:String>
+        </ComboBox>
+        <ItemsView ItemsSource="{x:Bind FilteredBooks, Mode=OneWay}">
+            <ItemsView.Layout>
+                <controls:UniformGridLayout Orientation="Horizontal" MinItemWidth="200" MaximumRowsOrColumns="3"/>
+            </ItemsView.Layout>
+            <ItemsView.ItemTemplate>
+                <DataTemplate x:DataType="local:Book">
+                    <StackPanel Margin="10">
+                        <Image Source="{x:Bind CoverImage}" Width="100" Height="150"/>
+                        <TextBlock Text="{x:Bind Title}" FontSize="18"/>
+                        <TextBlock Text="{x:Bind Author}" FontSize="14"/>
+                        <Button Content="{x:Bind IsFavorite, Converter={StaticResource BoolToStarConverter}}" Click="ToggleFavorite_Click"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsView.ItemTemplate>
+        </ItemsView>
+    </StackPanel>
+</Page>

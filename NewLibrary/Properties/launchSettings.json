@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "NewLibrary (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "NewLibrary (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
