@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="NewLibrary.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:NewLibrary"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Library">
+    <NavigationView x:ConnectionId='2' x:Name="NavView" PaneDisplayMode="LeftCompact" Header="All Books"                                            >
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="All Books" Icon="Library" Tag="AllBooks"/>
+            <NavigationViewItem Content="By Genre" Icon="Filter" Tag="ByGenre"/>
+            <NavigationViewItem Content="Favorites" Icon="Favorite" Tag="Favorites"/>
+        </NavigationView.MenuItems>
+        <Frame x:ConnectionId='3' x:Name="ContentFrame"/>
+    </NavigationView>
+</Window>
+

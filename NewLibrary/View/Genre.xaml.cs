@@ -3,45 +3,44 @@ using Microsoft.UI.Xaml.Controls;
 using System.Collections.ObjectModel;
 using System.Linq;
 
-namespace NewLibrary.View
+namespace NewLibrary.View;
+
+public sealed partial class Genre : Page
 {
-    public sealed partial class Genre : Page
+    public ObservableCollection<Book> Books { get; set; }
+    public ObservableCollection<Book> FilteredBooks { get; set; }
+
+    public Genre()
     {
-        public ObservableCollection<Book> Books { get; set; }
-        public ObservableCollection<Book> FilteredBooks { get; set; }
+        this.InitializeComponent();
+        Books = (Application.Current as App).Books;
+        FilteredBooks = new ObservableCollection<Book>(Books);
+    }
 
-        public Genre()
+    private void GenreComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedGenre = GenreComboBox.SelectedItem as string;
+        FilteredBooks.Clear();
+        if (selectedGenre == "All Genres")
         {
-            this.InitializeComponent();
-            Books = (Application.Current as App).Books;
-            FilteredBooks = new ObservableCollection<Book>(Books);
-        }
-
-        private void GenreComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedGenre = GenreComboBox.SelectedItem as string;
-            FilteredBooks.Clear();
-            if (selectedGenre == "Óñ³ æàíðè")
+            foreach (var book in Books)
             {
-                foreach (var book in Books)
-                {
-                    FilteredBooks.Add(book);
-                }
-            }
-            else
-            {
-                foreach (var book in Books.Where(b => b.Genre == selectedGenre))
-                {
-                    FilteredBooks.Add(book);
-                }
+                FilteredBooks.Add(book);
             }
         }
-
-        private void ToggleFavorite_Click(object sender, RoutedEventArgs e)
+        else
         {
-            Button button = sender as Button;
-            Book book = button.DataContext as Book;
-            book.IsFavorite = !book.IsFavorite;
+            foreach (var book in Books.Where(b => b.Genre == selectedGenre))
+            {
+                FilteredBooks.Add(book);
+            }
         }
+    }
+
+    private void ToggleFavorite_Click(object sender, RoutedEventArgs e)
+    {
+        Button button = sender as Button;
+        Book book = button.DataContext as Book;
+        book.IsFavorite = !book.IsFavorite;
     }
 }

@@ -6,12 +6,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="NewLibrary">
-    <NavigationView x:Name="NavView" PaneDisplayMode="LeftCompact" Header="Усі книги" SelectionChanged="NavView_SelectionChanged">
+        Title="Library">
+    <NavigationView x:Name="NavView" PaneDisplayMode="LeftCompact" Header="All Books" SelectionChanged="NavView_SelectionChanged">
         <NavigationView.MenuItems>
-            <NavigationViewItem Content="Усі книги" Icon="Library" Tag="AllBooks"/>
-            <NavigationViewItem Content="За жанрами" Icon="Filter" Tag="ByGenre"/>
-            <NavigationViewItem Content="Вибране" Icon="Favorite" Tag="Favorites`Favorites"/>
+            <NavigationViewItem Content="All Books" Icon="Library" Tag="AllBooks"/>
+            <NavigationViewItem Content="By Genre" Icon="Filter" Tag="ByGenre"/>
+            <NavigationViewItem Content="Favorites" Icon="Favorite" Tag="Favorites"/>
         </NavigationView.MenuItems>
         <Frame x:Name="ContentFrame"/>
     </NavigationView>

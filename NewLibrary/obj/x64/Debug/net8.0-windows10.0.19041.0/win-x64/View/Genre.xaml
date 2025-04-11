@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page x:ConnectionId='1' x:Class="NewLibrary.View.Genre"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:NewLibrary"
+      xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel>
+        <ComboBox x:ConnectionId='2' x:Name="GenreComboBox"                                                   Margin="10">
+            <x:String>All Genres</x:String>
+            <x:String>Science Fiction</x:String>
+            <x:String>Detective</x:String>
+            <x:String>Romance</x:String>
+        </ComboBox>
+        <ItemsView x:ConnectionId='3'                                                  >
+            <ItemsView.Layout>
+                <controls:UniformGridLayout Orientation="Horizontal" MinItemWidth="200" MaximumRowsOrColumns="3"/>
+            </ItemsView.Layout>
+            <ItemsView.ItemTemplate>
+                <DataTemplate                        >
+                    <StackPanel x:ConnectionId='5' Margin="10">
+                        <Image x:ConnectionId='6'                                                                                    Width="100" Height="150"/>
+                        <TextBlock x:ConnectionId='7'                       FontSize="18"/>
+                        <TextBlock x:ConnectionId='8'                        FontSize="14"/>
+                        <Button x:ConnectionId='9'                                                                                                           />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsView.ItemTemplate>
+        </ItemsView>
+    </StackPanel>
+</Page>
+

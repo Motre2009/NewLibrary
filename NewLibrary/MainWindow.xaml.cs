@@ -9,7 +9,7 @@ public sealed partial class MainWindow : Window
     public MainWindow()
     {
         this.InitializeComponent();
-        ContentFrame.Navigate(typeof(AllBooksPage)); // Початкова сторінка
+        ContentFrame.Navigate(typeof(AllBooksPage));
     }
 
     private void NavView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -21,15 +21,15 @@ public sealed partial class MainWindow : Window
             {
                 case "AllBooks":
                     ContentFrame.Navigate(typeof(AllBooksPage));
-                    NavView.Header = "Усі книги";
+                    NavView.Header = "All Books";
                     break;
                 case "ByGenre":
                     ContentFrame.Navigate(typeof(Genre));
-                    NavView.Header = "За жанрами";
+                    NavView.Header = "By Genre";
                     break;
                 case "Favorites":
                     ContentFrame.Navigate(typeof(FavoritesPage));
-                    NavView.Header = "Вибране";
+                    NavView.Header = "Favorites";
                     break;
             }
         }

@@ -10,10 +10,10 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <StackPanel>
         <ComboBox x:Name="GenreComboBox" SelectionChanged="GenreComboBox_SelectionChanged" Margin="10">
-            <x:String>Усі жанри</x:String>
-            <x:String>Фантастика</x:String>
-            <x:String>Детектив</x:String>
-            <x:String>Роман</x:String>
+            <x:String>All Genres</x:String>
+            <x:String>Science Fiction</x:String>
+            <x:String>Detective</x:String>
+            <x:String>Romance</x:String>
         </ComboBox>
         <ItemsView ItemsSource="{x:Bind FilteredBooks, Mode=OneWay}">
             <ItemsView.Layout>
@@ -22,7 +22,7 @@
             <ItemsView.ItemTemplate>
                 <DataTemplate x:DataType="local:Book">
                     <StackPanel Margin="10">
-                        <Image Source="{x:Bind CoverImage}" Width="100" Height="150"/>
+                        <Image Source="{x:Bind CoverImage, Converter={StaticResource UriToImageSourceConverter}}" Width="100" Height="150"/>
                         <TextBlock Text="{x:Bind Title}" FontSize="18"/>
                         <TextBlock Text="{x:Bind Author}" FontSize="14"/>
                         <Button Content="{x:Bind IsFavorite, Converter={StaticResource BoolToStarConverter}}" Click="ToggleFavorite_Click"/>
